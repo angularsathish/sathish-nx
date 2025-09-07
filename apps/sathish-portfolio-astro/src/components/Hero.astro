@@ -1,0 +1,63 @@
+---
+// src/components/Hero.astro
+import TerminalAnimation from './TerminalAnimation.tsx';
+import WorkspaceIllustration from './WorkspaceIllustration.tsx';
+---
+
+<section id="hero" class="relative xl:min-h-screen pt-20 pb-16">
+  <div class="absolute bg-hero opacity-[.03]"></div>
+  
+  <div class="max-w-6xl mx-auto px-4 lg:px-12 relative z-10">
+    <div class="flex flex-col items-center justify-center gap-8 xl:gap-12">
+      <!-- Left Column: Developer Info -->
+      <div class="w-full text-center space-y-6 xl:pt-8">
+        <div class="space-y-2">
+          <h2 class="text-green-500 text-xl md:text-2xl font-semibold">Hello World! I'm</h2>
+          <h1 class="text-4xl lg:text-6xl font-bold font-mono tracking-tight text-white">
+            Sathish Kumar
+          </h1>
+        </div>
+        
+        <p class="text-lg text-gray-300 max-w-xl mx-auto leading-relaxed">
+          Crafting elegant solutions to complex problems with clean code and innovative thinking.
+          Welcome to my personal dev workspace where ideas come to life.
+        </p>
+        
+        <div class="flex flex-wrap justify-center gap-4 py-2">
+          <a href="#projects" data-smooth-scroll class="px-6 py-3 bg-green-500 hover:bg-green-600 text-gray-900 font-bold rounded-lg transition-all flex items-center gap-2">
+            <i class="fas fa-code"></i> View Projects
+          </a>
+          <a href="#contact" data-smooth-scroll class="px-6 py-3 bg-transparent hover:bg-gray-800 text-green-400 border border-green-400 font-bold rounded-lg transition-all flex items-center gap-2">
+            <i class="fas fa-envelope"></i> Contact Me
+          </a>
+        </div>
+      </div>
+      
+      <!-- Right Column: Workspace Illustration -->
+      <WorkspaceIllustration client:load />
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const smoothScrollLinks = document.querySelectorAll('a[data-smooth-scroll]');
+    
+    smoothScrollLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href')?.substring(1);
+        const targetElement = targetId ? document.getElementById(targetId) : null;
+        
+        if (targetElement) {
+          const yOffset = -70;
+          const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({
+            top: y,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+</script>

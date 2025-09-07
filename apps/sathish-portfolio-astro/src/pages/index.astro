@@ -1,0 +1,32 @@
+---
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import TechStack from '../components/TechStack.astro';
+import About from '../components/About.tsx';
+import CTA from '../components/CTA.tsx';
+import Projects from '../components/Projects.tsx';
+import Blog from '../components/Blog.tsx';
+import Testimonials from '../components/Testimonials.tsx';
+import Contact from '../components/Contact.tsx';
+import Footer from '../components/Footer.astro';
+import BackToTop from '../components/BackToTop.tsx';
+import  '../../../../libs/shared/styles/src/globals.css';
+---
+
+<Layout title="Sathish Portfolio">
+  <Header />
+  <main>
+    <Hero />
+    <TechStack />
+    <About client:load />
+    <CTA client:load />
+    <Projects client:load />
+    <Blog client:load />
+    <Testimonials client:load />
+    <Contact client:load />
+  </main>
+  <Footer />
+  <BackToTop client:load />
+</Layout>

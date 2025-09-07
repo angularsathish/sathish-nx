@@ -1,0 +1,8 @@
+{
+    "name": "shared-styles",
+    "$schema": "../../../../node_modules/nx/schemas/nx-schema.json",
+    "sourceRoot": "libs/shared/styles/src",
+    "projectType": "library",
+    "targets": {},
+    "tags": ["shared", "styles"]
+}

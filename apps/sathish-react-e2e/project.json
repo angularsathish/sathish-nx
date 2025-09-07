@@ -1,0 +1,10 @@
+{
+  "name": "sathish-react-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/sathish-react-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["sathish-react"],
+  "// targets": "to see all targets run: nx show project sathish-react-e2e --web",
+  "targets": {}
+}

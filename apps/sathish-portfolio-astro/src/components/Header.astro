@@ -1,0 +1,105 @@
+---
+// src/components/Header.astro
+import MobileMenu from './MobileMenu.tsx';
+---
+
+<header class="sticky top-0 z-50 bg-gray-950/95 backdrop-blur-sm border-b border-gray-800">
+  <nav class="max-w-6xl mx-auto px-4 lg:px-12 py-6 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3">
+      <i class="fas fa-code text-green-400 text-2xl led-glow"></i>
+      <span class="text-xl font-bold text-white font-mono">Sathish Kumar</span>
+    </a>
+    
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex items-center gap-10">
+      <a href="#about" data-smooth-scroll class="text-gray-300 hover:text-green-400 transition-colors font-medium relative group">
+        About
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-400 transition-all group-hover:w-full"></span>
+      </a>
+      <a href="#projects" data-smooth-scroll class="text-gray-300 hover:text-green-400 transition-colors font-medium relative group">
+        Projects
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-400 transition-all group-hover:w-full"></span>
+      </a>
+      <a href="#blog" data-smooth-scroll class="text-gray-300 hover:text-green-400 transition-colors font-medium relative group">
+        Blogs
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-400 transition-all group-hover:w-full"></span>
+      </a>
+      <a href="#reviews" data-smooth-scroll class="text-gray-300 hover:text-green-400 transition-colors font-medium relative group">
+        Reviews
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-400 transition-all group-hover:w-full"></span>
+      </a>
+      <a href="#contact" data-smooth-scroll class="text-gray-300 hover:text-green-400 transition-colors font-medium relative group">
+        Contact
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-400 transition-all group-hover:w-full"></span>
+      </a>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <MobileMenu client:load />
+  </nav>
+</header>
+
+<script>
+  // Smooth scrolling and active link management
+  document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('a[data-smooth-scroll]');
+    const sections = document.querySelectorAll('section[id]');
+    
+    const removeActiveClasses = () => {
+      navLinks.forEach(link => link.classList.remove('active'));
+    };
+    
+    const setActiveLink = (targetId: string) => {
+      removeActiveClasses();
+      const activeLink = Array.from(navLinks).find(link => 
+        link.getAttribute('href') === `#${targetId}`
+      );
+      if (activeLink) activeLink.classList.add('active');
+    };
+    
+    const checkCurrentSection = () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 80;
+        const sectionHeight = section.clientHeight;
+        if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+          current = section.getAttribute('id') || '';
+        }
+      });
+      if (current) {
+        setActiveLink(current);
+      } else if (window.pageYOffset < (sections[0]?.offsetTop || 0) - 80) {
+        setActiveLink('home');
+      }
+    };
+    
+    navLinks.forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = anchor.getAttribute('href')?.substring(1);
+        const targetElement = targetId ? document.getElementById(targetId) : null;
+        if (targetElement) {
+          const yOffset = -70;
+          const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({
+            top: y,
+            behavior: 'smooth'
+          });
+          setActiveLink(targetId);
+        }
+      });
+    });
+    
+    window.addEventListener('scroll', checkCurrentSection);
+    checkCurrentSection();
+  });
+</script>
+
+<style>
+  .active {
+    color: rgb(34 197 94);
+  }
+  .active span {
+    width: 100%;
+  }
+</style>
