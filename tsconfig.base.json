@@ -14,7 +14,23 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@css": ["libs/shared/styles/src/globals.css"],
+      "@config/*": ["apps/sathish-nest/src/config/*"],
+      "@guards/*": ["apps/sathish-nest/src/guards/*"],
+      "@resolvers/*": ["apps/sathish-nest/src/resolvers/*"],
+      "@controllers/*": ["apps/sathish-nest/src/controllers/*"],
+      "@database/*": ["apps/sathish-nest/src/database/*"],
+      "@dtos/*": ["apps/sathish-nest/src/dtos/*"],
+      "@entities/*": ["apps/sathish-nest/src/entities/*"],
+      "@middleware/*": ["apps/sathish-nest/src/middleware/*"],
+      "@modules/*": ["apps/sathish-nest/src/modules/*"],
+      "@sathish-nx/interfaces": ["libs/shared/interfaces/src/index.ts"],
+      "@sathish-nx/shared": ["libs/shared/src/index.ts"],
+      "@services/*": ["apps/sathish-nest/src/services/*"],
+      "@shared-interfaces/*": ["libs/shared/interfaces/src/*"],
+      "@utils/*": ["apps/sathish-nest/src/utils/*"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
