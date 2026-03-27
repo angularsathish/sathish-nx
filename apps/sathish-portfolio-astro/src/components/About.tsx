@@ -121,8 +121,7 @@ const About = () => {
   return years;
 }
 
-// Example
-console.log(calculateExperience("2018-04-01")); // e.g. 5
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
