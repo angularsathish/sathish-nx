@@ -56,3 +56,4 @@ out
 /node_modules
 /package-lock.json
 /apps/sathish-portfolio-astro/node_modules
+/.claude

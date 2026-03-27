@@ -181,15 +181,15 @@ const Contact = () => {
                 <ul className="space-y-4 text-gray-300">
                   <li className="flex items-center gap-3">
                     <i className="fas fa-envelope text-green-400"></i>
-                    <a href="mailto:john@devworkspace.com" className="hover:text-green-400 transition-colors">john@devworkspace.com</a>
+                    <a href="mailto:john@devworkspace.com" className="hover:text-green-400 transition-colors">sathish.stack@gmail.com</a>
                   </li>
                   <li className="flex items-center gap-3">
                     <i className="fas fa-phone-alt text-green-400"></i>
-                    <a href="tel:+1234567890" className="hover:text-green-400 transition-colors">+1 (234) 567-890</a>
+                    <a href="tel:+1234567890" className="hover:text-green-400 transition-colors">+91 70104 05953</a>
                   </li>
                   <li className="flex items-center gap-3">
                     <i className="fas fa-map-marker-alt text-green-400"></i>
-                    <span>San Francisco, CA</span>
+                    <span>Puducherry, In</span>
                   </li>
                 </ul>
               </div>
@@ -200,18 +200,14 @@ const Contact = () => {
                   Connect with Me
                 </h3>
                 <div className="flex gap-4">
-                  <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-green-400 text-2xl transition-colors transform hover:scale-110">
+                  <a href="https://github.com/angularsathish" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-green-400 text-2xl transition-colors transform hover:scale-110">
                     <i className="fab fa-github"></i>
                   </a>
-                  <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-green-400 text-2xl transition-colors transform hover:scale-110">
+                  <a href="https://www.linkedin.com/in/sathish-kumar-184aa962/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-green-400 text-2xl transition-colors transform hover:scale-110">
                     <i className="fab fa-linkedin"></i>
                   </a>
-                  <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-green-400 text-2xl transition-colors transform hover:scale-110">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                  <a href="https://dev.to/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-green-400 text-2xl transition-colors transform hover:scale-110">
-                    <i className="fab fa-dev"></i>
-                  </a>
+                  
+                  
                 </div>
               </div>
             </div>

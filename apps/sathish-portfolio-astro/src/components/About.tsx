@@ -55,10 +55,10 @@ const About = () => {
 
   const animateProgress = (bar: keyof ProgressBarData) => {
     const targetValues = {
-      frontend: 90,
-      backend: 85,
-      devops: 75,
-      mobile: 65
+      frontend: 85,
+      backend: 90,
+      devops: 50,
+      mobile: 50
     };
     
     const target = targetValues[bar];
@@ -103,6 +103,27 @@ const About = () => {
     setContribution(prev => ({ ...prev, isTooltipVisible: false }));
   };
 
+  function calculateExperience(startDate: string): number {
+  const start = new Date(startDate);
+  const now = new Date();
+
+  let years = now.getFullYear() - start.getFullYear();
+
+  // Adjust if current date is before anniversary
+  const hasNotCompletedYear =
+    now.getMonth() < start.getMonth() ||
+    (now.getMonth() === start.getMonth() && now.getDate() < start.getDate());
+
+  if (hasNotCompletedYear) {
+    years--;
+  }
+
+  return years;
+}
+
+// Example
+console.log(calculateExperience("2018-04-01")); // e.g. 5
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -146,7 +167,7 @@ const About = () => {
                 <div className="w-8 h-8 rounded-full bg-gray-600 flex items-center justify-center overflow-hidden">
                   <img src="/img/male2.jpg" alt="Programmer" className="w-8 h-8 object-cover" />
                 </div>
-                <span className="text-gray-300 font-semibold hidden sm:inline-block">github.com/johnpeterson77</span>
+                <span className="text-gray-300 font-semibold hidden sm:inline-block">github.com/sathish</span>
               </div>
               <div className="flex items-center gap-3 text-sm">
                 <div className="hidden lg:flex items-center gap-1 text-gray-400">
@@ -248,7 +269,7 @@ const About = () => {
                 <i className="fas fa-user text-green-400"></i> Who I Am
               </h3>
               <p className="text-gray-300 mb-4 leading-relaxed">
-                I'm a passionate developer with 5+ years of experience building web applications and contributing to open source projects. I specialize in creating clean, efficient, and maintainable code.
+                I'm a passionate developer with {calculateExperience("2018-04-01")}+ years of experience building web applications and contributing to open source projects. I specialize in creating clean, efficient, and maintainable code.
               </p>
               <p className="text-gray-300 leading-relaxed">
                 When I'm not coding, you can find me exploring new technologies, writing tech articles, or enjoying a fresh cup of coffee while debugging complex problems.
@@ -257,7 +278,7 @@ const About = () => {
               {/* GitHub Stats */}
               <div className="mt-6 grid grid-cols-3 gap-2 text-center">
                 <div className="bg-gray-700/20 p-3 rounded">
-                  <div className="text-2xl font-bold text-green-400">152</div>
+                  <div className="text-2xl font-bold text-green-400">10</div>
                   <div className="text-xs text-gray-400">Repositories</div>
                 </div>
                 <div className="bg-gray-700/20 p-3 rounded">
@@ -333,14 +354,15 @@ const About = () => {
            
               {/* Technology Tags */}
               <div className="mt-6 flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-gray-700/20 text-gray-300 rounded-full text-sm">JavaScript</span>
+                <span className="px-3 py-1 bg-gray-700/20 text-gray-300 rounded-full text-sm">Angular</span>
                 <span className="px-3 py-1 bg-gray-700/20 text-gray-300 rounded-full text-sm">React</span>
+                <span className="px-3 py-1 bg-gray-700/20 text-gray-300 rounded-full text-sm">Next Js</span>
+                <span className="px-3 py-1 bg-gray-700/20 text-gray-300 rounded-full text-sm">JavaScript</span>
                 <span className="px-3 py-1 bg-gray-700/20 text-gray-300 rounded-full text-sm">Node.js</span>
                 <span className="px-3 py-1 bg-gray-700/20 text-gray-300 rounded-full text-sm">TypeScript</span>
                 <span className="px-3 py-1 bg-gray-700/20 text-gray-300 rounded-full text-sm">TailwindCSS</span>
-                <span className="px-3 py-1 bg-gray-700/20 text-gray-300 rounded-full text-sm">Python</span>
-                <span className="px-3 py-1 bg-gray-700/20 text-gray-300 rounded-full text-sm">Docker</span>
-                <span className="px-3 py-1 bg-gray-700/20 text-gray-300 rounded-full text-sm">Git</span>
+                <span className="px-3 py-1 bg-gray-700/20 text-gray-300 rounded-full text-sm">Bootstrap</span>
+                <span className="px-3 py-1 bg-gray-700/20 text-gray-300 rounded-full text-sm">GraphQL</span>
               </div>
             </div>
           </div>

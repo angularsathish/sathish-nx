@@ -80,7 +80,7 @@ const WorkspaceIllustration = () => {
                                     <div className="w-2 h-2 bg-green-500 rounded-full" />
                                 </div>
                                 <div className="text-[10px] sm:text-xs text-gray-400 mx-auto font-code">
-                                    john@dev-workspace
+                                    sathish@dev-workspace
                                 </div>
                             </div>
                             <div className="p-2 flex-1 font-code text-xs lg:text-sm">
@@ -88,7 +88,7 @@ const WorkspaceIllustration = () => {
                                     {`          _____  
      /     \\    `}
                                     <span className="text-yellow-400">
-                                        john@dev-workspace
+                                        sathish@dev-workspace
                                     </span>
                                     {`
     | () () |   `}
@@ -117,18 +117,19 @@ const WorkspaceIllustration = () => {
                 `}
                                     <span className="text-purple-400">Languages:</span>{" "}
                                     <span className="text-gray-300">
-                                        JavaScript, Python, Go
+                                        JavaScript, Typescript
+                                    </span>
+                                    {`
+                `}
+
+                                    <span className="text-purple-400">Frameworks:</span>{" "}
+                                    <span className="text-gray-300">
+                                        Angular, React, Next.js, TailwindCSS, Bootstrap
                                     </span>
                                     {`
                 `}
                                     <span className="text-purple-400">Editor:</span>{" "}
                                     <span className="text-gray-300">VSCode / Neovim</span>
-                                    {`
-                `}
-                                    <span className="text-purple-400">Frameworks:</span>{" "}
-                                    <span className="text-gray-300">
-                                        React, Next.js, TailwindCSS
-                                    </span>
                                 </pre>
                             </div>
                         </div>
@@ -215,8 +216,8 @@ const WorkspaceIllustration = () => {
     `}
                                     &lt;<span className="text-blue-400">LoadingScreen</span>{" "}
                                     /&gt;
-                                   
-  
+
+
                                 </pre>
                             </div>
                         </div>
