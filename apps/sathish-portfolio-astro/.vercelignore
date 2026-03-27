@@ -1,0 +1,36 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build outputs
+dist
+.astro
+
+# Development
+.vscode
+.idea
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage
+.nyc_output
+
+# Other Nx apps (only deploy portfolio)
+../../apps/sathish-angular
+../../apps/sathish-next
+../../apps/sathish-react
+../../apps/sathish-nest
