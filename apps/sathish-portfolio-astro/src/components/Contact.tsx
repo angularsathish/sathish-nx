@@ -88,23 +88,23 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 bg-gray-900/50 relative flex justify-center items-center">
-      <div className="max-w-6xl mx-auto px-4 lg:px-12 relative z-10">
+    <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-gray-900/50 relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold font-mono inline-block relative text-white mb-1">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-mono inline-block relative text-white mb-1">
             Get in <span className="text-green-400">Touch</span>
             <div className="absolute -bottom-2 left-0 w-full h-1 bg-green-500 opacity-70"></div>
           </h2>
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-gray-400 mt-3 sm:mt-4 max-w-2xl mx-auto px-2">
             Have a project in mind or just want to chat about code? Drop me a message, and let's make things happen!
           </p>
         </div>
 
         {/* Contact Content */}
-        <div className="relative bg-gray-950 p-8 rounded-lg border border-gray-800 shadow-lg flex justify-center items-center">
+        <div className="relative bg-gray-950 p-4 sm:p-6 lg:p-8 rounded-lg border border-gray-800 shadow-lg flex justify-center items-center overflow-hidden">
           {/* table */}
-          <div className=" absolute -bottom-20 -right-20 w-56 h-56 bg-gray-800/20 border-2 border-gray-700 rounded-full flex justify-center items-center">
+          <div className="hidden lg:block absolute -bottom-20 -right-20 w-56 h-56 bg-gray-800/20 border-2 border-gray-700 rounded-full flex justify-center items-center">
             {/* pattern */}
             <div className="absolute inset-0 bg-hero opacity-[.03]"></div>
           </div>
@@ -212,9 +212,9 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Coffee */}
-          <div className="absolute bottom-10 right-10 w-12 h-16">
+          <div className="hidden lg:block absolute bottom-10 right-10 w-12 h-16">
             <div className="absolute -right-4 top-6 h-8 w-8 border-4 border-gray-700 rounded-r-full"></div>
             <div className="absolute bottom-0 w-full h-10 bg-gray-700 rounded-b-lg"></div>
             <div className="absolute bottom-8 w-full h-8 bg-gray-600 rounded-lg">

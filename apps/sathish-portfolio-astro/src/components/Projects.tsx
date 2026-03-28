@@ -76,7 +76,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-20 bg-gray-900/50 relative flex justify-center items-center">
-      <div className="max-w-6xl mx-auto px-4 lg:px-12 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold font-mono inline-block relative text-white mb-1">

@@ -3,8 +3,15 @@ import { useState, useEffect } from 'react';
 
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
+
     const toggleVisibility = () => {
       if (window.pageYOffset > 300) {
         setIsVisible(true);
@@ -13,12 +20,15 @@ const BackToTop = () => {
       }
     };
 
+    // Check initial scroll position
+    toggleVisibility();
+
     window.addEventListener('scroll', toggleVisibility);
 
     return () => {
       window.removeEventListener('scroll', toggleVisibility);
     };
-  }, []);
+  }, [isMounted]);
 
   const scrollToTop = () => {
     window.scrollTo({

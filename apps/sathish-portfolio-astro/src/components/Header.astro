@@ -3,8 +3,8 @@
 import MobileMenu from './MobileMenu.tsx';
 ---
 
-<header class="sticky top-0 z-50 bg-gray-950/95 backdrop-blur-sm border-b border-gray-800">
-  <nav class="max-w-6xl mx-auto px-4 lg:px-12 py-6 flex items-center justify-between">
+<header id="main-header" class="fixed top-0 left-0 right-0 z-[9999] bg-gray-950/95 backdrop-blur-sm border-b border-gray-800 transition-shadow duration-300">
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 py-4 sm:py-6 flex items-center justify-between">
     <a href="/" class="flex items-center gap-3">
       <i class="fas fa-code text-green-400 text-2xl led-glow"></i>
       <span class="text-xl font-bold text-white font-mono">Sathish Kumar</span>
@@ -42,21 +42,33 @@ import MobileMenu from './MobileMenu.tsx';
 <script>
   // Smooth scrolling and active link management
   document.addEventListener('DOMContentLoaded', () => {
+    const header = document.getElementById('main-header');
     const navLinks = document.querySelectorAll('a[data-smooth-scroll]');
     const sections = document.querySelectorAll('section[id]');
-    
+
+    // Add shadow to header when scrolled
+    const handleScroll = () => {
+      if (header) {
+        if (window.scrollY > 10) {
+          header.classList.add('shadow-lg', 'shadow-black/20');
+        } else {
+          header.classList.remove('shadow-lg', 'shadow-black/20');
+        }
+      }
+    };
+
     const removeActiveClasses = () => {
       navLinks.forEach(link => link.classList.remove('active'));
     };
-    
+
     const setActiveLink = (targetId: string) => {
       removeActiveClasses();
-      const activeLink = Array.from(navLinks).find(link => 
+      const activeLink = Array.from(navLinks).find(link =>
         link.getAttribute('href') === `#${targetId}`
       );
       if (activeLink) activeLink.classList.add('active');
     };
-    
+
     const checkCurrentSection = () => {
       let current = '';
       sections.forEach(section => {
@@ -72,14 +84,14 @@ import MobileMenu from './MobileMenu.tsx';
         setActiveLink('home');
       }
     };
-    
+
     navLinks.forEach(anchor => {
       anchor.addEventListener('click', (e) => {
         e.preventDefault();
         const targetId = anchor.getAttribute('href')?.substring(1);
         const targetElement = targetId ? document.getElementById(targetId) : null;
         if (targetElement) {
-          const yOffset = -70;
+          const yOffset = -80;
           const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
           window.scrollTo({
             top: y,
@@ -89,8 +101,14 @@ import MobileMenu from './MobileMenu.tsx';
         }
       });
     });
-    
-    window.addEventListener('scroll', checkCurrentSection);
+
+    window.addEventListener('scroll', () => {
+      handleScroll();
+      checkCurrentSection();
+    });
+
+    // Initial checks
+    handleScroll();
     checkCurrentSection();
   });
 </script>

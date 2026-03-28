@@ -1,5 +1,5 @@
 // src/components/MobileMenu.tsx
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface NavLink {
   href: string;
@@ -8,6 +8,11 @@ interface NavLink {
 
 const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const navLinks: NavLink[] = [
     { href: '#about', label: 'About' },
@@ -21,7 +26,7 @@ const MobileMenu = () => {
     setIsOpen(false);
     const targetElement = document.getElementById(href.substring(1));
     if (targetElement) {
-      const yOffset = -70;
+      const yOffset = -80;
       const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({
         top: y,
