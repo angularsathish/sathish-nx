@@ -19,11 +19,20 @@ const MobileMenu = () => {
     { href: '#projects', label: 'Projects' },
     { href: '#blog', label: 'Blogs' },
     { href: '#reviews', label: 'Reviews' },
-    { href: '#contact', label: 'Contact' }
+    { href: '#contact', label: 'Contact' },
+    { href: '/resume', label: 'Resume' }
   ];
 
   const handleLinkClick = (href: string) => {
     setIsOpen(false);
+
+    // If it's a regular link (not hash), navigate normally
+    if (!href.startsWith('#')) {
+      window.location.href = href;
+      return;
+    }
+
+    // Handle hash navigation
     const targetElement = document.getElementById(href.substring(1));
     if (targetElement) {
       const yOffset = -80;

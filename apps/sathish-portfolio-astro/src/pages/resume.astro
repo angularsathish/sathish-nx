@@ -1,0 +1,19 @@
+---
+// src/pages/resume.astro
+import Layout from '../layouts/Layout.astro';
+import ResumeHeader from '../components/ResumeHeader.astro';
+import ResumeFooter from '../components/ResumeFooter.astro';
+import ResumeViewer from '../components/ResumeViewer.tsx';
+import BackToTop from '../components/BackToTop.tsx';
+
+import  '@css';
+---
+
+<Layout title="Resume - Sathish Kumar">
+  <ResumeHeader />
+  <main>
+    <ResumeViewer client:load />
+  </main>
+  <ResumeFooter />
+  <BackToTop client:load />
+</Layout>
